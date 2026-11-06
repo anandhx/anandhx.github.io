@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anandhu Ashok — Software Developer</title>
-  <meta name="description" content="Anandhu Ashok, software developer in Kottayam, Kerala. Web applications and defensive security.">
+  <meta name="description" content="Anandhu Ashok, software developer at Digital University Kerala. Cybersecurity, distributed systems, and network defense.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -56,9 +56,10 @@
     .lead { max-width: 68ch; }
     table { width: 100%; border-collapse: collapse; }
     th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-top: 1px solid var(--line); }
-    th { width: 34%; font-weight: 500; color: var(--text); }
+    th { width: 36%; font-weight: 500; color: var(--text); }
     td { color: var(--muted); }
     tr:first-child th, tr:first-child td { border-top: 0; padding-top: 0; }
+    .when { display: block; margin-top: 2px; color: var(--muted); font-weight: 400; font-size: 13px; }
     .stack { margin: 0; color: var(--muted); }
     footer { padding: 28px 0 48px; color: var(--muted); font-size: 14px; }
     @media (max-width: 640px) {
@@ -76,11 +77,11 @@
   <header>
     <p class="kicker">Kottayam, Kerala</p>
     <h1>Anandhu Ashok</h1>
-    <p class="role">Software developer. Web applications and defensive security.</p>
+    <p class="role">Software Developer, Digital University Kerala</p>
     <nav>
+      <a href="#experience">Experience</a>
       <a href="#practice">Practice</a>
       <a href="#projects">Projects</a>
-      <a href="#security">Security</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -88,7 +89,31 @@
 
   <main>
     <section>
-      <p class="lead">BCA, MES College Kottayam. Primary languages are Python and PHP, with JavaScript, HTML, CSS, and MySQL. Security work covers firewall baselines, runtime detection, and network security.</p>
+      <p class="lead">Software developer focused on cybersecurity, distributed systems, and network defense. Development team, Network and Systems Security Lab, Digital University Kerala.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>Software Developer<span class="when">Digital University Kerala · Technopark</span><span class="when">March 2025 – Present</span></th>
+            <td>Development team, Network and Systems Security Lab. The lab builds Project ASPER, a MeitY-funded security automation system for enterprise networks, with Tata Elxsi.</td>
+          </tr>
+          <tr>
+            <th>Freelance Developer<span class="when">Kottayam</span><span class="when">February 2024 – Present</span></th>
+            <td>Full-stack web systems, database design, automation, and security-focused applications.</td>
+          </tr>
+          <tr>
+            <th>Python Developer<span class="when">MGU Innovation Foundation</span><span class="when">June 2024 – September 2024</span></th>
+            <td>Python backend development.</td>
+          </tr>
+          <tr>
+            <th>IT Administrator<span class="when">MES Golden Jubilee College, Kottayam</span><span class="when">April 2024 – June 2024</span></th>
+            <td>Information technology administration for the college.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section id="practice">
@@ -97,54 +122,70 @@
         <tbody>
           <tr>
             <th>Application development</th>
-            <td>PHP and MySQL web systems. Python and Flask services and automation. HTML, CSS, and JavaScript interfaces.</td>
+            <td>PHP and MySQL web systems. Python and Flask services, automation, and Telegram bots. HTML, CSS, and JavaScript interfaces. Flutter for mobile clients.</td>
           </tr>
           <tr>
             <th>Security</th>
-            <td>Firewall configuration review, security baselines, and Linux runtime detection.</td>
+            <td>Phishing detection, image forgery analysis, firewall baselines, and Linux runtime detection.</td>
           </tr>
           <tr>
             <th>Networking</th>
-            <td>Software-defined network labs, segmentation, and traffic inspection.</td>
+            <td>Network defense, software-defined network labs, segmentation, and traffic inspection.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Selected work</h2>
       <table>
         <tbody>
           <tr>
+            <th>PhishAlert</th>
+            <td>AI phishing detection for the web and a Flutter app. URL and domain checks, blacklist management, and audit logs.</td>
+          </tr>
+          <tr>
+            <th>Image Forgery Detection</th>
+            <td>Flask application that flags manipulated images from inconsistencies in the image data.</td>
+          </tr>
+          <tr>
+            <th>Tech Guard</th>
+            <td>Web and Telegram assistant with Malayalam voice commands, security alerts, and camera-based detection.</td>
+          </tr>
+          <tr>
+            <th>BridgexJobsBot</th>
+            <td>Python job-alert bot. Portal monitoring, Telegram delivery, SQLite, and resume scoring.</td>
+          </tr>
+          <tr>
+            <th>AI Job Portal</th>
+            <td>Recruitment platform with job listings, timed aptitude tests, and AI-assisted scoring.</td>
+          </tr>
+          <tr>
+            <th>Vehicle Management System</th>
+            <td>PHP and MySQL system for vehicle service, with separate admin, mechanic, and user roles.</td>
+          </tr>
+          <tr>
+            <th>BlindsHelper</th>
+            <td>Assistive web platform for low-vision users: voice navigation, a screen reader, and magnification.</td>
+          </tr>
+          <tr>
+            <th><a href="https://github.com/anandhx/mes-kottayam">MES College Kottayam</a></th>
+            <td>Official college website: departments, admissions, events, and contact information.</td>
+          </tr>
+          <tr>
             <th><a href="https://github.com/anandhx/college-canteen-mini-project">College Canteen</a></th>
-            <td>PHP, MySQL. Canteen operations: menu, hours, and ordering.</td>
+            <td>PHP and MySQL. Menu, inventory, and campus food ordering.</td>
           </tr>
           <tr>
             <th><a href="https://github.com/anandhx/Kerala-Radio">Kerala Radio</a></th>
-            <td>Python, Flask. Web player for Kerala radio stations.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/Nursing-Locker">Nursing Locker</a></th>
-            <td>HTML. BSc Nursing question papers and notes.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/bus-world-erumely">Bus World Erumeli</a></th>
-            <td>HTML, CSS. Site for a vehicle accessories business.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/Serena">Serena</a></th>
-            <td>Python. Virtual assistant.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/Task-Management-System">Task Management</a></th>
-            <td>Python. Task tracking application.</td>
+            <td>Flask web player for Kerala radio stations.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section id="security">
-      <h2>Security</h2>
+      <h2>Security engineering</h2>
       <table>
         <tbody>
           <tr>
@@ -159,6 +200,10 @@
             <th>Network labs</th>
             <td>Mininet.</td>
           </tr>
+          <tr>
+            <th>Professional training</th>
+            <td>Defense Strategies and Incident Response in the Era of AI-Driven Malware, Society for Electronic Transactions and Security, Chennai.</td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -168,12 +213,16 @@
       <table>
         <tbody>
           <tr>
-            <th>BCA</th>
-            <td>MES College Kottayam, 2021–2024.</td>
+            <th>BCA<span class="when">2021 – 2024</span></th>
+            <td>MES Golden Jubilee College, Mahatma Gandhi University, Kottayam.</td>
           </tr>
           <tr>
-            <th>Higher secondary</th>
-            <td>Computer Science, MGM NSS HSS Lakkattoor, 2019–2021.</td>
+            <th>Higher secondary<span class="when">2019 – 2021</span></th>
+            <td>Computer Science, MGM NSS HSS Lakkattoor.</td>
+          </tr>
+          <tr>
+            <th>Certification<span class="when">April 2024</span></th>
+            <td>Introduction to Programming Using Python, Kaggle.</td>
           </tr>
         </tbody>
       </table>
@@ -181,12 +230,16 @@
 
     <section>
       <h2>Technologies</h2>
-      <p class="stack">Python, PHP, JavaScript, HTML, CSS, MySQL, Flask, Java, Linux, Git</p>
+      <p class="stack">Python, PHP, JavaScript, HTML, CSS, MySQL, Flask, Flutter, Java, Linux, Git</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p><a href="mailto:anandhuashok6959@gmail.com">anandhuashok6959@gmail.com</a> · <a href="https://github.com/anandhx">github.com/anandhx</a></p>
+      <p>
+        <a href="mailto:anandhuashok6959@gmail.com">anandhuashok6959@gmail.com</a>
+        · <a href="https://github.com/anandhx">GitHub</a>
+        · <a href="https://www.linkedin.com/in/anandhu-ashok/">LinkedIn</a>
+      </p>
     </section>
   </main>
 
