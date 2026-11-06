@@ -3,102 +3,251 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anandhu Ashok — Software Developer</title>
-  <!-- updated 2026-11-06 -->
-  <meta name="description" content="Anandhu Ashok, software developer at Digital University Kerala. Cybersecurity, distributed systems, and network defense.">
+  <title>Anandhu Ashok | Software Developer in Kerala | Cybersecurity</title>
+  <meta name="description" content="Anandhu Ashok is a software developer in Kottayam, Kerala. He works on cybersecurity, network defense, and web applications at Digital University Kerala.">
+  <meta name="author" content="Anandhu Ashok">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#121410">
+  <meta name="geo.region" content="IN-KL">
+  <meta name="geo.placename" content="Kottayam, Kerala, India">
+  <link rel="canonical" href="https://anandhx.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Anandhu Ashok">
+  <meta property="og:title" content="Anandhu Ashok | Software Developer in Kerala">
+  <meta property="og:description" content="Software developer focused on cybersecurity, distributed systems, and network defense. Digital University Kerala.">
+  <meta property="og:url" content="https://anandhx.github.io/">
+  <meta property="og:locale" content="en_IN">
+  <meta property="profile:first_name" content="Anandhu">
+  <meta property="profile:last_name" content="Ashok">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Anandhu Ashok | Software Developer in Kerala">
+  <meta name="twitter:description" content="Cybersecurity, network defense, and web applications. Digital University Kerala.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Outfit:wght@380;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://anandhx.github.io/#website",
+        "url": "https://anandhx.github.io/",
+        "name": "Anandhu Ashok",
+        "description": "Portfolio of Anandhu Ashok, software developer in Kottayam, Kerala.",
+        "inLanguage": "en-IN",
+        "publisher": { "@id": "https://anandhx.github.io/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://anandhx.github.io/#person",
+        "name": "Anandhu Ashok",
+        "alternateName": "anandhx",
+        "jobTitle": "Software Developer",
+        "description": "Software developer focused on cybersecurity, distributed systems, and network defense.",
+        "url": "https://anandhx.github.io/",
+        "email": "mailto:anandhuashok6959@gmail.com",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Kottayam, Kerala, India",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kottayam",
+            "addressRegion": "Kerala",
+            "addressCountry": "IN"
+          }
+        },
+        "worksFor": {
+          "@type": "CollegeOrUniversity",
+          "name": "Digital University Kerala"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "MES Golden Jubilee College, Mahatma Gandhi University, Kottayam"
+        },
+        "sameAs": [
+          "https://github.com/anandhx",
+          "https://www.linkedin.com/in/anandhu-ashok/"
+        ],
+        "knowsAbout": [
+          "Cybersecurity",
+          "Network defense",
+          "Distributed systems",
+          "Web application development",
+          "Python",
+          "PHP",
+          "Firewall operations"
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
-      --bg: #0d1117;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --line: #30363d;
-      --accent: #79c0ff;
-      --max: 820px;
+      --bg: #121410;
+      --bg-2: #1b1e18;
+      --text: #f4f1ea;
+      --muted: #b3ad9f;
+      --faint: #8b8578;
+      --line: #32362c;
+      --gold: #e4c27a;
+      --sage: #b7c7a3;
+      --max: 980px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(900px 420px at 0% -10%, rgba(228, 194, 122, 0.08), transparent 55%),
+        var(--bg);
       color: var(--text);
-      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-      font-size: 16px;
+      font-family: Outfit, "Segoe UI", sans-serif;
+      font-size: 16.5px;
       line-height: 1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    header, main, footer { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    header { padding: 48px 0 8px; }
-    .kicker {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-family: "IBM Plex Mono", ui-monospace, monospace;
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -40px;
+      background: var(--gold);
+      color: #121410;
+      padding: 8px 12px;
+    }
+    .skip:focus { top: 12px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header.site { padding: 56px 0 8px; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
       font-size: 12px;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-    h1 { margin: 0; font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
-    .role { margin: 12px 0 0; color: var(--muted); font-size: 18px; }
-    nav { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
-    nav a { color: var(--text); font-size: 14px; }
-    section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(46px, 7vw, 76px);
+      font-weight: 560;
+      letter-spacing: -0.035em;
+      line-height: 0.95;
+    }
+    .role {
+      margin: 18px 0 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 20px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin-top: 32px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    nav a { color: var(--text); font-size: 14px; font-weight: 500; }
+    main section { padding: 42px 0; border-bottom: 1px solid var(--line); }
     h2 {
       margin: 0 0 18px;
-      font-size: 13px;
-      font-weight: 500;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 28px;
+      font-weight: 560;
+      letter-spacing: -0.03em;
+    }
+    .lead { max-width: 68ch; margin: 0; color: var(--muted); }
+    .rows { width: 100%; border-collapse: collapse; }
+    .rows th, .rows td {
+      text-align: left;
+      vertical-align: top;
+      padding: 14px 18px 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .rows tr:first-child th, .rows tr:first-child td { border-top: 0; padding-top: 0; }
+    .rows th { width: 34%; font-weight: 560; }
+    .rows td { color: var(--muted); }
+    .when { display: block; margin-top: 3px; color: var(--faint); font-weight: 400; font-size: 13px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    article {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+    article h3 { margin: 10px 0 6px; font-size: 18px; font-weight: 600; }
+    article p { margin: 0; color: var(--muted); font-size: 15px; }
+    .mark {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+    .private { color: var(--gold); border: 1px solid rgba(228, 194, 122, 0.45); }
+    .public { color: var(--sage); border: 1px solid rgba(183, 199, 163, 0.45); }
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list li {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
       color: var(--muted);
     }
-    p { margin: 0; }
-    .lead { max-width: 68ch; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-top: 1px solid var(--line); }
-    th { width: 36%; font-weight: 500; color: var(--text); }
-    td { color: var(--muted); }
-    tr:first-child th, tr:first-child td { border-top: 0; padding-top: 0; }
-    .when { display: block; margin-top: 2px; color: var(--muted); font-weight: 400; font-size: 13px; }
-    .stack { margin: 0; color: var(--muted); }
-    footer { padding: 28px 0 48px; color: var(--muted); font-size: 14px; }
-    @media (max-width: 640px) {
-      h1 { font-size: 32px; }
-      th, td { display: block; width: 100%; padding: 0; }
-      th { padding-top: 16px; }
-      td { padding-bottom: 12px; border-top: 0; }
-      tr { border-top: 1px solid var(--line); }
-      tr:first-child { border-top: 0; }
-      tr:first-child th { padding-top: 0; }
+    .list li:first-child { border-top: 0; padding-top: 0; }
+    .list strong { color: var(--text); font-weight: 560; }
+    .note { margin: 14px 0 0; color: var(--faint); font-size: 14px; }
+    footer {
+      padding: 28px 0 48px;
+      color: var(--faint);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      .grid, .list li { grid-template-columns: 1fr; gap: 4px; }
+      .rows th, .rows td { display: block; width: 100%; padding-right: 0; }
+      .rows td { padding-top: 4px; padding-bottom: 14px; border-top: 0; }
+      .rows tr { border-top: 1px solid var(--line); }
+      .rows tr:first-child { border-top: 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <p class="kicker">Kottayam, Kerala</p>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site wrap">
+    <p class="eyebrow">Kottayam, Kerala</p>
     <h1>Anandhu Ashok</h1>
-    <p class="role">Software Developer, Digital University Kerala</p>
-    <nav>
+    <p class="role">Software developer at Digital University Kerala. Cybersecurity, distributed systems, and network defense.</p>
+    <nav aria-label="Page">
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#practice">Practice</a>
-      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <p class="lead">Software developer focused on cybersecurity, distributed systems, and network defense. Development team, Network and Systems Security Lab, Digital University Kerala.</p>
+  <main id="content">
+    <section class="wrap" id="about">
+      <h2>About</h2>
+      <p class="lead">Anandhu Ashok is a software developer in Kottayam, Kerala. He is on the development team of the Network and Systems Security Lab at Digital University Kerala, working on cybersecurity and network defense, and he builds web applications for clients.</p>
     </section>
 
-    <section id="experience">
+    <section class="wrap" id="experience">
       <h2>Experience</h2>
-      <table>
+      <table class="rows">
         <tbody>
           <tr>
-            <th>Software Developer<span class="when">Digital University Kerala · Technopark</span><span class="when">March 2025 – Present</span></th>
+            <th>Software Developer<span class="when">Digital University Kerala, Technopark</span><span class="when">March 2025 – Present</span></th>
             <td>Development team, Network and Systems Security Lab. The lab builds Project ASPER, a MeitY-funded security automation system for enterprise networks, with Tata Elxsi.</td>
           </tr>
           <tr>
@@ -117,77 +266,81 @@
       </table>
     </section>
 
-    <section id="practice">
-      <h2>Practice</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Application development</th>
-            <td>PHP and MySQL web systems. Python and Flask services, automation, and Telegram bots. HTML, CSS, and JavaScript interfaces. Flutter for mobile clients.</td>
-          </tr>
-          <tr>
-            <th>Security</th>
-            <td>Phishing detection, image forgery analysis, firewall baselines, and Linux runtime detection.</td>
-          </tr>
-          <tr>
-            <th>Networking</th>
-            <td>Network defense, software-defined network labs, segmentation, and traffic inspection.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="projects">
+    <section class="wrap" id="work">
       <h2>Selected work</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>PhishAlert</th>
-            <td>AI phishing detection for the web and a Flutter app. URL and domain checks, blacklist management, and audit logs.</td>
-          </tr>
-          <tr>
-            <th>Image Forgery Detection</th>
-            <td>Flask application that flags manipulated images from inconsistencies in the image data.</td>
-          </tr>
-          <tr>
-            <th>Tech Guard</th>
-            <td>Web and Telegram assistant with Malayalam voice commands, security alerts, and camera-based detection.</td>
-          </tr>
-          <tr>
-            <th>BridgexJobsBot</th>
-            <td>Python job-alert bot. Portal monitoring, Telegram delivery, SQLite, and resume scoring.</td>
-          </tr>
-          <tr>
-            <th>AI Job Portal</th>
-            <td>Recruitment platform with job listings, timed aptitude tests, and AI-assisted scoring.</td>
-          </tr>
-          <tr>
-            <th>Vehicle Management System</th>
-            <td>PHP and MySQL system for vehicle service, with separate admin, mechanic, and user roles.</td>
-          </tr>
-          <tr>
-            <th>BlindsHelper</th>
-            <td>Assistive web platform for low-vision users: voice navigation, a screen reader, and magnification.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/mes-kottayam">MES College Kottayam</a></th>
-            <td>Official college website: departments, admissions, events, and contact information.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/college-canteen-mini-project">College Canteen</a></th>
-            <td>PHP and MySQL. Menu, inventory, and campus food ordering.</td>
-          </tr>
-          <tr>
-            <th><a href="https://github.com/anandhx/Kerala-Radio">Kerala Radio</a></th>
-            <td>Flask web player for Kerala radio stations.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="grid">
+        <article>
+          <span class="mark private">Private</span>
+          <h3>ASPER Dashboard</h3>
+          <p>TypeScript dashboard for Project ASPER, with login services and an offline Docker release.</p>
+        </article>
+        <article>
+          <span class="mark private">Private</span>
+          <h3>PhishAlert</h3>
+          <p>Phishing detection for the web and a Flutter app. URL checks, a blacklist, and audit logs.</p>
+        </article>
+        <article>
+          <span class="mark private">Private</span>
+          <h3>MediSmart</h3>
+          <p>Kerala pharmacy application. Prescription reading, store pickup, rack stock, and INR checkout.</p>
+        </article>
+        <article>
+          <span class="mark private">Private</span>
+          <h3>Cafe Billing</h3>
+          <p>Offline point of sale. SQLite billing, accounts, reports, print, and Excel.</p>
+        </article>
+        <article>
+          <span class="mark private">Private</span>
+          <h3>Dormetry</h3>
+          <p>Railway dormitory booking. One Flutter app for staff, supervisor, and owner.</p>
+        </article>
+        <article>
+          <span class="mark private">Private</span>
+          <h3>WaitHall</h3>
+          <p>Seat booking for air-conditioned railway waiting halls.</p>
+        </article>
+      </div>
+
+      <h2 style="margin-top:36px">Private projects</h2>
+      <ul class="list">
+        <li><strong>Tech Guard <span class="mark private">Private</span></strong><span>Web and Telegram assistant with security alerts and camera-based detection.</span></li>
+        <li><strong>Image Forgery Detection <span class="mark private">Private</span></strong><span>Flask application that flags manipulated images.</span></li>
+        <li><strong>Bridgex Jobs <span class="mark private">Private</span></strong><span>Python job alerts on Telegram, with resume scoring.</span></li>
+        <li><strong>Job Monitor <span class="mark private">Private</span></strong><span>Job monitoring application.</span></li>
+        <li><strong>AI Job Portal <span class="mark private">Private</span></strong><span>Listings, timed aptitude tests, and assisted scoring.</span></li>
+        <li><strong>Exam Navigator <span class="mark private">Private</span></strong><span>Exam preparation platform with study plans and mock tests.</span></li>
+        <li><strong>BlindsHelper <span class="mark private">Private</span></strong><span>Assistive site for low-vision users: voice navigation and magnification.</span></li>
+        <li><strong>Vehicle Tracking <span class="mark private">Private</span></strong><span>Vehicle, employee, and leave management for a company site.</span></li>
+        <li><strong>Vehicle Management <span class="mark private">Private</span></strong><span>Service workflow for admin, mechanic, and customer roles.</span></li>
+        <li><strong>Auto Service Dashboard <span class="mark private">Private</span></strong><span>Spare parts, accessories, and garage booking.</span></li>
+        <li><strong>Railway Parking <span class="mark private">Private</span></strong><span>Multi-location station parking. Flask and HTML.</span></li>
+        <li><strong>Train Tracker <span class="mark private">Private</span></strong><span>Live rail monitoring application.</span></li>
+        <li><strong>Xplore <span class="mark private">Private</span></strong><span>Travel planning and business directory. Flask.</span></li>
+        <li><strong>EV Service Station <span class="mark private">Private</span></strong><span>On-demand charging and mechanical support for stranded electric vehicles.</span></li>
+        <li><strong>Event Management <span class="mark private">Private</span></strong><span>Event operations system.</span></li>
+        <li><strong>Eden Garden <span class="mark private">Private</span></strong><span>Website for an event planning business.</span></li>
+        <li><strong>Craft Marketplace <span class="mark private">Private</span></strong><span>Marketplace for handmade goods. PHP and MySQL.</span></li>
+        <li><strong>Recipe Scanner <span class="mark private">Private</span></strong><span>Indian recipe platform with calorie estimates.</span></li>
+        <li><strong>Game Hub <span class="mark private">Private</span></strong><span>Web gaming platform with an admin panel.</span></li>
+        <li><strong>Health Predictor <span class="mark private">Private</span></strong><span>Health prediction application.</span></li>
+        <li><strong>Nila Social <span class="mark private">Private</span></strong><span>Flask social application.</span></li>
+      </ul>
+      <p class="note">Private means the source is not public. These projects are listed by name only.</p>
+
+      <h2 style="margin-top:36px">Public projects</h2>
+      <ul class="list">
+        <li><strong><a href="https://github.com/anandhx/college-canteen-mini-project">College Canteen</a> <span class="mark public">Public</span></strong><span>PHP and MySQL. Menu, inventory, and campus ordering.</span></li>
+        <li><strong><a href="https://github.com/anandhx/Kerala-Radio">Kerala Radio</a> <span class="mark public">Public</span></strong><span>Flask player for Kerala radio stations.</span></li>
+        <li><strong><a href="https://github.com/anandhx/mes-kottayam">MES College Kottayam</a> <span class="mark public">Public</span></strong><span>College website: departments, admissions, and events.</span></li>
+        <li><strong><a href="https://github.com/anandhx/Nursing-Locker">Nursing Locker</a> <span class="mark public">Public</span></strong><span>BSc Nursing question papers and notes.</span></li>
+        <li><strong><a href="https://github.com/anandhx/bus-world-erumely">Bus World Erumeli</a> <span class="mark public">Public</span></strong><span>Site for a vehicle accessories shop.</span></li>
+        <li><strong><a href="https://github.com/anandhx/Serena">Serena</a> <span class="mark public">Public</span></strong><span>Python virtual assistant.</span></li>
+      </ul>
     </section>
 
-    <section id="security">
-      <h2>Security engineering</h2>
-      <table>
+    <section class="wrap" id="security">
+      <h2>Security practice</h2>
+      <table class="rows">
         <tbody>
           <tr>
             <th>Runtime detection</th>
@@ -195,23 +348,23 @@
           </tr>
           <tr>
             <th>Firewall operations</th>
-            <td>Sophos Firewall baseline audits and Ansible automation.</td>
+            <td>Sophos Firewall baseline audits and Ansible automation. Palo Alto PAN-OS SDK.</td>
           </tr>
           <tr>
             <th>Network labs</th>
             <td>Mininet.</td>
           </tr>
           <tr>
-            <th>Professional training</th>
+            <th>Training</th>
             <td>Defense Strategies and Incident Response in the Era of AI-Driven Malware, Society for Electronic Transactions and Security, Chennai.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <section id="education">
+    <section class="wrap" id="education">
       <h2>Education</h2>
-      <table>
+      <table class="rows">
         <tbody>
           <tr>
             <th>BCA<span class="when">2021 – 2024</span></th>
@@ -227,14 +380,10 @@
           </tr>
         </tbody>
       </table>
+      <p class="note">Python, PHP, JavaScript, HTML, CSS, MySQL, Flask, Flutter, TypeScript, Java, Linux, Git.</p>
     </section>
 
-    <section>
-      <h2>Technologies</h2>
-      <p class="stack">Python, PHP, JavaScript, HTML, CSS, MySQL, Flask, Flutter, Java, Linux, Git</p>
-    </section>
-
-    <section id="contact">
+    <section class="wrap" id="contact">
       <h2>Contact</h2>
       <p>
         <a href="mailto:anandhuashok6959@gmail.com">anandhuashok6959@gmail.com</a>
@@ -243,7 +392,6 @@
       </p>
     </section>
   </main>
-
-  <footer>Anandhu Ashok</footer>
+  <footer class="wrap">Anandhu Ashok · Software developer · Kottayam, Kerala</footer>
 </body>
 </html>
