@@ -105,13 +105,13 @@
     .nav-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
     .nav-links a { color: var(--text); font-size: 14px; padding: 6px 0; }
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-      gap: 12px 28px;
+      position: relative;
+      min-height: calc(100dvh - 64px);
+      display: flex;
       align-items: center;
-      min-height: calc(100dvh - 72px);
-      padding: 12px 0 36px;
+      overflow: hidden;
     }
+    .hero-copy { position: relative; z-index: 2; width: min(560px, 100%); padding: 28px 0 48px; }
     .hero-copy > * { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
     .hero-copy > *:nth-child(2) { animation-delay: 0.08s; }
     .hero-copy > *:nth-child(3) { animation-delay: 0.16s; }
@@ -133,7 +133,15 @@
       letter-spacing: -0.045em;
       line-height: 0.92;
     }
-    .role { margin: 18px 0 0; font-size: clamp(20px, 2vw, 28px); font-weight: 600; }
+    .role {
+      margin: 18px 0 0;
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 600;
+      background: linear-gradient(90deg, #f7fbff, #8fe7ff 55%, #e8cb90);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
     .lede { margin: 12px 0 0; max-width: 46ch; color: var(--muted); }
     .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
     .cta a {
@@ -144,17 +152,22 @@
       background: rgba(10, 16, 24, 0.55);
       backdrop-filter: blur(12px);
     }
-    .stage-wrap {
-      position: relative;
-      height: min(68vh, 640px);
-      min-height: 360px;
-      border-radius: 32px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 46%, rgba(120, 220, 255, 0.16), rgba(6, 10, 16, 0.15) 42%, rgba(6, 8, 13, 0.02) 70%);
-      animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    #stage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
     }
-    #stage { width: 100%; height: 100%; display: block; pointer-events: none; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(6, 8, 13, 0.92) 0%, rgba(6, 8, 13, 0.62) 36%, rgba(6, 8, 13, 0) 64%);
+    }
     section { padding: 64px 0; }
     h2 {
       margin: 0;
@@ -214,8 +227,9 @@
       }
     }
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 4px; }
-      .stage-wrap { order: -1; height: 48dvh; min-height: 260px; border-radius: 24px; }
+      .hero { min-height: 0; display: block; }
+      .hero::before { display: none; }
+      #stage { position: relative; height: 58dvh; min-height: 280px; }
       .skills, .grid, .row { grid-template-columns: 1fr; }
       h1 { font-size: clamp(42px, 12vw, 64px); }
       section { padding: 48px 0; }
@@ -239,8 +253,9 @@
     </nav>
   </div>
 
-  <header class="hero wrap">
-    <div class="hero-copy">
+  <header class="hero">
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <div class="wrap hero-copy">
       <p class="eyebrow">Kottayam, Kerala · Digital University Kerala</p>
       <h1>Anandhu Ashok</h1>
       <p class="role">Cybersecurity and software developer.</p>
@@ -251,9 +266,6 @@
         <a href="https://www.linkedin.com/in/anandhu-ashok/">LinkedIn</a>
         <a href="mailto:anandhuashok6959@gmail.com">Email</a>
       </div>
-    </div>
-    <div class="stage-wrap" aria-hidden="true">
-      <canvas id="stage"></canvas>
     </div>
   </header>
 
@@ -337,145 +349,153 @@
   </main>
   <footer class="wrap">Anandhu Ashok</footer>
 
-  <script>
-    (function () {
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var canvas = document.getElementById("stage");
-      var wrap = canvas && canvas.parentElement;
-      if (canvas && wrap) {
-        var ctx = canvas.getContext("2d");
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        var knot = [];
-        var shell = [];
-        var dust = [];
-        for (var i = 0; i <= 280; i++) {
-          var t = (i / 280) * Math.PI * 2;
-          var cr = Math.cos(3 * t);
-          var sr = Math.sin(3 * t);
-          knot.push([(2 + cr) * Math.cos(2 * t), (2 + cr) * Math.sin(2 * t), sr]);
-        }
-        var phi = (1 + Math.sqrt(5)) / 2;
-        var seeds = [[-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0], [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi], [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]];
-        function near(a, b) {
-          var dx = a[0] - b[0], dy = a[1] - b[1], dz = a[2] - b[2];
-          return Math.abs(dx * dx + dy * dy + dz * dz - 4) < 0.2;
-        }
-        for (var a = 0; a < seeds.length; a++) {
-          for (var b = a + 1; b < seeds.length; b++) {
-            if (near(seeds[a], seeds[b])) shell.push([seeds[a], seeds[b]]);
-          }
-        }
-        for (var d = 0; d < 46; d++) {
-          var ang = Math.random() * Math.PI * 2;
-          dust.push({ a: ang, r: 2.6 + Math.random() * 1.3, y: (Math.random() - 0.5) * 1.4, s: 0.4 + Math.random() });
-        }
-        function project(p, rotY, rotX, w, h) {
-          var cy = Math.cos(rotY), sy = Math.sin(rotY);
-          var cx = Math.cos(rotX), sx = Math.sin(rotX);
-          var x1 = p[0] * cy + p[2] * sy;
-          var z1 = -p[0] * sy + p[2] * cy;
-          var y1 = p[1] * cx - z1 * sx;
-          var z2 = p[1] * sx + z1 * cx;
-          var scale = (Math.min(w, h) * 0.46) / (6.2 - z2);
-          return [w / 2 + x1 * scale, h / 2 + y1 * scale, z2];
-        }
-        function resize() {
-          dpr = Math.min(window.devicePixelRatio || 1, wrap.clientWidth < 700 ? 1.5 : 2);
-          canvas.width = Math.max(1, Math.floor(wrap.clientWidth * dpr));
-          canvas.height = Math.max(1, Math.floor(wrap.clientHeight * dpr));
-        }
-        resize();
-        window.addEventListener("resize", resize);
-        var running = true;
-        document.addEventListener("visibilitychange", function () {
-          running = !document.hidden;
-          if (running && !reduce) requestAnimationFrame(frame);
-        });
-        function frame(now) {
-          if (!running) return;
-          var time = reduce ? 0.8 : now * 0.001;
-          var w = canvas.width, h = canvas.height;
-          ctx.clearRect(0, 0, w, h);
-          var glow = ctx.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, Math.min(w, h) * 0.48);
-          glow.addColorStop(0, "rgba(90, 190, 220, 0.20)");
-          glow.addColorStop(1, "rgba(90, 190, 220, 0)");
-          ctx.fillStyle = glow;
-          ctx.fillRect(0, 0, w, h);
-          var rotY = time * 0.45;
-          var rotX = 0.45 + Math.sin(time * 0.35) * 0.18;
-          function strokePath(points, color, width, closed) {
-            ctx.beginPath();
-            for (var n = 0; n < points.length; n++) {
-              var q = project(points[n], rotY, rotX, w, h);
-              if (n === 0) ctx.moveTo(q[0], q[1]);
-              else ctx.lineTo(q[0], q[1]);
-            }
-            if (closed) ctx.closePath();
-            ctx.strokeStyle = color;
-            ctx.lineWidth = width * dpr;
-            ctx.stroke();
-          }
-          ctx.lineCap = "round";
-          ctx.lineJoin = "round";
-          ctx.globalAlpha = 0.22;
-          strokePath(knot, "#8fe7ff", 10, true);
-          ctx.globalAlpha = 0.95;
-          strokePath(knot, "#d8f7ff", 2.2, true);
-          ctx.globalAlpha = 0.55;
-          for (var e = 0; e < shell.length; e++) {
-            var p1 = project(shell[e][0].map(function (v) { return v * 0.72; }), rotY, rotX, w, h);
-            var p2 = project(shell[e][1].map(function (v) { return v * 0.72; }), rotY, rotX, w, h);
-            ctx.beginPath();
-            ctx.moveTo(p1[0], p1[1]);
-            ctx.lineTo(p2[0], p2[1]);
-            ctx.strokeStyle = "#9ad7ea";
-            ctx.lineWidth = 1.1 * dpr;
-            ctx.stroke();
-          }
-          ctx.globalAlpha = 0.8;
-          function ring(radius, tilt, color) {
-            var pts = [];
-            for (var k = 0; k <= 90; k++) {
-              var a = (k / 90) * Math.PI * 2;
-              pts.push([Math.cos(a) * radius, Math.sin(a) * radius * Math.sin(tilt), Math.sin(a) * radius * Math.cos(tilt)]);
-            }
-            strokePath(pts, color, 1.4, true);
-          }
-          ring(2.55, 1.15, "#8fe7ff");
-          ring(2.85, 0.55, "#e8cb90");
-          for (var u = 0; u < dust.length; u++) {
-            var speck = dust[u];
-            var aa = speck.a + time * speck.s * 0.35;
-            var dot = project([Math.cos(aa) * speck.r, speck.y, Math.sin(aa) * speck.r], rotY * 0.2, 0.2, w, h);
-            ctx.globalAlpha = 0.35 + (dot[2] + 2) / 8;
-            ctx.fillStyle = "#f4fbff";
-            ctx.beginPath();
-            ctx.arc(dot[0], dot[1], 1.4 * dpr, 0, Math.PI * 2);
-            ctx.fill();
-          }
-          ctx.globalAlpha = 1;
-          if (!reduce) requestAnimationFrame(frame);
-        }
-        requestAnimationFrame(frame);
-      }
+<script src="three.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canvas = document.getElementById("stage");
+  var pieces = document.querySelectorAll(".panel, .card, .row");
+  if (reduce || !("IntersectionObserver" in window)) {
+    pieces.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        seen.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    pieces.forEach(function (el, index) {
+      el.style.animationDelay = (index % 3) * 0.08 + "s";
+      seen.observe(el);
+    });
+  }
+  if (!canvas || !window.THREE) return;
 
-      var pieces = document.querySelectorAll(".panel, .card, .row");
-      if (reduce || !("IntersectionObserver" in window)) {
-        pieces.forEach(function (el) { el.classList.add("in"); });
-      } else {
-        var seen = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("in");
-            seen.unobserve(entry.target);
-          });
-        }, { threshold: 0.15 });
-        pieces.forEach(function (el, index) {
-          el.style.animationDelay = Math.min(index % 3, 2) * 0.08 + "s";
-          seen.observe(el);
-        });
-      }
-    })();
-  </script>
+  var mobileQuery = window.matchMedia("(max-width: 860px)");
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileQuery.matches ? 1.5 : 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.25;
+
+  var scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x06080d, 7, 16);
+  var camera = new THREE.PerspectiveCamera(34, 1, 0.1, 40);
+
+  var env = new THREE.Scene();
+  var box = new THREE.BoxGeometry(1, 1, 1);
+  function lamp(color, x, y, z, size) {
+    var mesh = new THREE.Mesh(box, new THREE.MeshBasicMaterial({ color: color }));
+    mesh.position.set(x, y, z);
+    mesh.scale.setScalar(size);
+    env.add(mesh);
+  }
+  lamp(0x071018, 0, 0, 0, 14);
+  lamp(0x7ad7ff, -5, 3, -3, 3);
+  lamp(0xe8cb90, 5, -1, 2, 2);
+  lamp(0xf4fbff, 0, 6, 1, 1.2);
+  var pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(env, 0.04).texture;
+
+  var sculpture = new THREE.Group();
+  scene.add(sculpture);
+  var metal = new THREE.MeshStandardMaterial({
+    color: 0x163844,
+    metalness: 1,
+    roughness: 0.16,
+    emissive: 0x0b4454,
+    emissiveIntensity: 0.35
+  });
+  var knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.05, 0.34, 240, 36), metal);
+  var wire = new THREE.Mesh(
+    new THREE.TorusKnotGeometry(1.08, 0.345, 80, 12),
+    new THREE.MeshBasicMaterial({ color: 0xd7f7ff, wireframe: true, transparent: true, opacity: 0.16 })
+  );
+    var core = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.32, 1),
+    new THREE.MeshStandardMaterial({ color: 0xb7dbe6, emissive: 0x5ec8e0, emissiveIntensity: 0.45, metalness: 0.65, roughness: 0.2 })
+  );
+  var cage = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(1.85, 1),
+    new THREE.MeshBasicMaterial({ color: 0x9ad7ea, wireframe: true, transparent: true, opacity: 0.22 })
+  );
+  var ringA = new THREE.Mesh(new THREE.TorusGeometry(2.35, 0.012, 16, 180), new THREE.MeshBasicMaterial({ color: 0x8fe7ff }));
+  var ringB = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.008, 16, 180), new THREE.MeshBasicMaterial({ color: 0xe8cb90 }));
+  ringA.rotation.x = 1.15;
+  ringB.rotation.x = 0.62;
+  ringB.rotation.y = 0.9;
+  var count = mobileQuery.matches ? 80 : 160;
+  var positions = new Float32Array(count * 3);
+  for (var i = 0; i < count; i++) {
+    var radius = 2.3 + Math.random() * 1.6;
+    var theta = Math.random() * Math.PI * 2;
+    var phi = Math.acos(2 * Math.random() - 1);
+    positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+    positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta) * 0.55;
+    positions[i * 3 + 2] = radius * Math.cos(phi);
+  }
+  var dust = new THREE.BufferGeometry();
+  dust.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  sculpture.add(knot, wire, core, cage, ringA, ringB, new THREE.Points(dust, new THREE.PointsMaterial({ color: 0xf3fbff, size: 0.035, transparent: true, opacity: 0.85 })));
+
+  scene.add(new THREE.AmbientLight(0x9eb6c6, 0.35));
+  var key = new THREE.DirectionalLight(0xffffff, 2.6);
+  key.position.set(4, 5, 6);
+  var rim = new THREE.PointLight(0x7adfff, 40, 16);
+  rim.position.set(-3.4, 1.4, 2.2);
+  var warm = new THREE.PointLight(0xe8cb90, 18, 14);
+  warm.position.set(3.2, -1.2, 2);
+  scene.add(key, rim, warm);
+
+  var aim = { x: 0, y: 0 };
+  window.addEventListener("pointermove", function (event) {
+    if (mobileQuery.matches) return;
+    aim.x = (event.clientX / window.innerWidth - 0.5) * 0.7;
+    aim.y = (event.clientY / window.innerHeight - 0.5) * 0.4;
+  });
+
+  function place() {
+    var narrow = mobileQuery.matches;
+    camera.position.z = narrow ? 7.6 : 6.2;
+    sculpture.position.x = narrow ? 0 : 1.45;
+  }
+  function resize() {
+    var parent = canvas.parentElement;
+    var w = parent.clientWidth;
+    var h = canvas.clientHeight || parent.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    place();
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  var running = true;
+  document.addEventListener("visibilitychange", function () {
+    running = !document.hidden;
+    if (running && !reduce) requestAnimationFrame(frame);
+  });
+  function frame(now) {
+    if (!running) return;
+    var time = reduce ? 0.6 : now * 0.001;
+    sculpture.rotation.y = time * 0.28;
+    sculpture.rotation.x = Math.sin(time * 0.45) * 0.16;
+    sculpture.position.y = Math.sin(time * 0.8) * 0.08;
+    ringA.rotation.z = time * 0.22;
+    ringB.rotation.z = -time * 0.16;
+    core.rotation.y = -time * 0.4;
+    var focusX = sculpture.position.x + aim.x;
+    camera.position.x += (focusX - camera.position.x) * 0.045;
+    camera.position.y += (0.15 - aim.y - camera.position.y) * 0.045;
+    camera.lookAt(sculpture.position.x, 0, 0);
+    renderer.render(scene, camera);
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
